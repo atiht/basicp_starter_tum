@@ -1,9 +1,15 @@
-#def show_movies(movie_list):
-def show_movies(movie_list,ticket_price):
-    for s in main :
-        print(main)
+def show_movies(movie_list):
+    print("รายชื่อหนังทั้งหมด:")
+    for i in range (movie_list):
+        movie = movie_list[i]
+        print(f"{i + 1}. {movie['movie_name']} - แนว {movie['genre']} - เรท {movie['age_restriction']} - ราคา {movie['ticket_price']} บาท")
 
-        #print(s)
+def check_age(user_age, age_restriction):
+    if age_restriction == 'G':
+        return True
+    else:
+        min_age = int(age_restriction)
+        return user_age >= min_age
 
 def main():
     # TODO: สร้างรายการหนังเป็น list ของ dict โดยเก็บข้อมูล movie_name, ticket_price, genre, age_restriction
@@ -18,10 +24,10 @@ def main():
     menu = int(input("เลือกเมนู: (1)แสดงหนัง (2)ซื้อตั๋วหนัง "))
     if menu == 1:
         for s in movies:
-            print({s["movie_name"]})
+            print(s["movie_name"])
     elif menu == 2 :
-            for s in movies:
-                print(f"ชื่อหนัง{s["movie_name"]} | ราคาหนัง : {s["ticket_price"]}")
+        for s in movies:
+            print(f"ชื่อหนัง{s['movie_name']} | ราคาหนัง : {s['ticket_price']}")
 main()
-
+#print(f"ชื่อหนัง{s["movie_name"]} | ราคาหนัง : {s["ticket_price"]}")
 

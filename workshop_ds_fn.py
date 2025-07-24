@@ -1,20 +1,41 @@
 # ฟังก์ชันแสดงรายชื่อหนังทั้งหมดในระบบ
-def show_movies(movie_list,ticket_price):
+def show_movies(movie_list):
     for s in range(movie_list) :
-        print(s)
-show_movies(movie_list)
+        movie = movie_list[s]
+        print(f"{s + 1}. {movie['movie_name']} - แนว {movie['genre']} - เรท {movie['age_restriction']} - ราคา {movie['ticket_price']} บาท")
+
 # ฟังก์ชันตรวจสอบอายุตามข้อจำกัดของหนัง
 def check_age(user_age, age_restriction):
+    if age_restriction == 'G':
+        return True
+    else:
+        min_age = int(age_restriction)
+        return user_age >= min_age
     # TODO: ถ้า age_restriction เป็น 'G' ให้ผ่านเลย
     # ถ้าไม่ใช่ ให้ดึงเลขอายุขั้นต่ำมาเปรียบเทียบกับ user_age
 
 # ฟังก์ชันคำนวณราคาตั๋วโดยขึ้นกับประเภทหนัง
 def calculate_price(base_price, genre):
+    if genre == 'Action':
+        return base_price + 50
+    else:
+        return base_price
     # TODO: ถ้า genre เป็น 'Action' บวกเพิ่ม 50 บาท
     # ถ้าไม่ใช่ คืนราคาเดิม
 
 # ฟังก์ชันสำหรับการซื้อบัตรชมหนัง
 def buy_ticket(movie_list):
+    show_movies(movie_list)
+    choice = int(input("เลือกหมายเลขหนัง (1-5): "))\
+    #selected_movie = movie_list[choice - 1]
+    age = int(input("กรุณากรอกอายุของคุณ: "))
+    if not check_age(age, ['age_restriction']):
+        print("ขออภัย คุณมีอายุน้อยเกินไปสำหรับหนังเรื่องนี้")
+        return
+    print("เลือกเสียงพากย์:")
+    print("1. พากย์ไทย")
+    print("2. Soundtrack")    
+    
     # TODO: 
     # 1. เรียก show_movies เพื่อแสดงรายชื่อหนัง
     # 2. รับค่าตัวเลือกหนังจากผู้ใช้ (1-5)
@@ -40,7 +61,18 @@ def main():
     # 2. ซื้อตั๋วหนัง
 
     # รับค่าตัวเลือกเมนูจากผู้ใช้
-    menu = input("เลือกเมนู: ")
+    print("------ เมนู ------")
+    print("1. แสดงหนังทั้งหมด")
+    print("2. ซื้อตั๋วหนัง")
+
+    menu = int(input("เลือกเมนู: "))
+
+    if menu == 1:
+        show_movies(movies)
+    elif menu == 2:
+        buy_ticket(movies)
+    else:
+        print("เมนูไม่ถูกต้อง")
 
     # TODO: ตรวจสอบเมนูที่เลือก
     # ถ้าเลือก 1 ให้เรียก show_movies พร้อมส่ง movies
