@@ -68,9 +68,11 @@ def main():
     menu = int(input("เลือกเมนู: "))
 
     if menu == 1:
-        show_movies(movies)
-    elif menu == 2:
-        buy_ticket(movies)
+        for s in movies:
+            print(s["movie_name"])
+    elif menu == 2 :
+        for s in movies:
+            print(f"ชื่อหนัง{s['movie_name']} | ราคาหนัง : {s['ticket_price']}")
     else:
         print("เมนูไม่ถูกต้อง")
 
