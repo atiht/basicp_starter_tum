@@ -1,21 +1,3 @@
-"""
-num = int(input("Enter number :"))
-sum = 0
-for i in range(1,num+1):
-    sum = sum + 5
-    print(f"ครั้งที่{i}=",sum)
-"""
-
-"""
-sum = 1
-num = int(input("Enter number :"))
-thimes = int(input("Enter times :"))
-while sum <= thimes:
-    print(num)
-    num += 5
-    sum += 1
-"""
-
 monster = ("tum")
 HP = 100
 sword = 15
@@ -40,7 +22,6 @@ if disition == 2 :
             print("damage hit ", sword)
             HP = HP - sword
             print("HP BOOS",HP)
-
     if HP == 0 :
         print("BOSS DEAD")
     elif HP < 0 :
@@ -48,7 +29,8 @@ if disition == 2 :
         print("HP BOSS 20")
     elif HP > 0 :
         print("player dead")
-
+else:
+    print("you lose")
         
 
 

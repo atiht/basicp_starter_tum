@@ -24,7 +24,23 @@ if x >= 50 :
     else :
         print("D") 
 """
+"""
+num = int(input("Enter number :"))
+sum = 0
+for i in range(1,num+1):
+    sum = sum + 5
+    print(f"ครั้งที่{i}=",sum)
+"""
 
+"""
+sum = 1
+num = int(input("Enter number :"))
+thimes = int(input("Enter times :"))
+while sum <= thimes:
+    print(num)
+    num += 5
+    sum += 1
+"""
 
 member = input("Enter your member :")
 cost = int(input("เงินรวมที่สั่งอาหาร"))
